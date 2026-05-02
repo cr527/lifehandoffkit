@@ -532,11 +532,39 @@ h3 {
   max-width: 840px;
 }
 
-.scenario-copy p:not(.section-label) {
+.scenario-copy p:not(.section-label),
+.scenario-items {
   color: var(--muted);
   font-size: clamp(20px, 2vw, 28px);
   line-height: 1.42;
+}
+
+.scenario-copy p:not(.section-label) {
   margin-bottom: 0;
+}
+
+.scenario-items {
+  display: grid;
+  gap: 10px 24px;
+  grid-template-columns: repeat(2, minmax(0, max-content));
+  list-style: none;
+  margin: 22px 0;
+  padding: 0;
+}
+
+.scenario-items li {
+  align-items: center;
+  display: flex;
+  font-weight: 820;
+}
+
+.scenario-items li::before {
+  background: var(--gold);
+  border-radius: 999px;
+  content: "";
+  height: 8px;
+  margin-right: 12px;
+  width: 8px;
 }
 
 .scenario-panel {

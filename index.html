@@ -38,7 +38,7 @@
         <a href="#privacy">Privacy</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a class="header-button" href="#free">Free checklist</a>
+      <a class="header-button" href="#free" data-track="header_checklist_click">Free checklist</a>
     </header>
 
     <main id="top">
@@ -56,8 +56,8 @@
           </p>
           <p class="hero-microline">Designed to be completed in one focused hour.</p>
           <div class="hero-actions">
-            <a class="primary-button" href="#free">Get the free ER checklist</a>
-            <a class="secondary-button" href="#buy">See the complete kit</a>
+            <a class="primary-button" href="#free" data-track="hero_checklist_click">Get the 1-page ER checklist</a>
+            <a class="secondary-button" href="#buy" data-track="hero_full_kit_click">Get the full kit for $37</a>
           </div>
           <dl class="proof-row" aria-label="Product details">
             <div>
@@ -113,10 +113,13 @@
         <div class="scenario-copy">
           <p class="section-label">What this prevents</p>
           <h2>Most families do not realize what is missing until someone asks for it.</h2>
-          <p>
-            Medications. Insurance. Who to call. Where anything is. And that
-            usually comes up in a hospital.
-          </p>
+          <ul class="scenario-items">
+            <li>Medications</li>
+            <li>Insurance</li>
+            <li>Who to call</li>
+            <li>Where anything is</li>
+          </ul>
+          <p>And that usually happens in a hospital.</p>
         </div>
         <div class="scenario-panel">
           <p>You are in the waiting room.</p>
@@ -448,6 +451,7 @@
           class="lead-form"
           action="https://formsubmit.co/hello@lifehandoffkit.com"
           method="POST"
+          data-track="checklist_form_submit"
         >
           <input type="hidden" name="_subject" value="Parent Emergency Snapshot request" />
           <input type="hidden" name="_captcha" value="false" />
@@ -500,8 +504,9 @@
           <a
             class="primary-button full"
             href="mailto:hello@lifehandoffkit.com?subject=Parent%20Readiness%20Protocol%20launch"
+            data-track="purchase_click_mailto"
           >
-            Secure the protocol
+            Get the full kit for $37
           </a>
           <p class="checkout-note">Instant download after purchase. Delivered instantly. Yours to keep. No account required.</p>
         </div>
@@ -523,11 +528,11 @@
           </details>
           <details>
             <summary>What if my parent will not share this information?</summary>
-            <p>
-              Start with the Critical 5 and use the scripts to ask for only the
-              basics first. The goal is not to finish every detail in one talk;
-              it is to make the next emergency less confusing.
-            </p>
+            <ul>
+              <li>Start with the Critical 5.</li>
+              <li>Use the conversation scripts to ask for only the basics first.</li>
+              <li>Build gradually over time instead of trying to finish every detail in one talk.</li>
+            </ul>
           </details>
           <details>
             <summary>Should I write passwords in it?</summary>
@@ -552,5 +557,20 @@
       <p>The Life Handoff Kit</p>
       <p>Organizational tools only. Not legal, medical, financial, or tax advice.</p>
     </footer>
+    <script>
+      document.querySelectorAll("[data-track]").forEach((element) => {
+        const sendEvent = () => {
+          if (typeof window.gtag === "function") {
+            window.gtag("event", element.dataset.track);
+          }
+        };
+
+        if (element.tagName === "FORM") {
+          element.addEventListener("submit", sendEvent);
+        } else {
+          element.addEventListener("click", sendEvent);
+        }
+      });
+    </script>
   </body>
 </html>
