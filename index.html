@@ -128,6 +128,24 @@
         </div>
       </section>
 
+      <section class="conversation-section" aria-label="Aging parent conversation">
+        <figure class="conversation-photo">
+          <img
+            src="./assets/family-documents-conversation.jpg"
+            alt="Adult child and aging parent reviewing documents together at a kitchen table"
+          />
+        </figure>
+        <div class="conversation-copy">
+          <p class="section-label">The conversation</p>
+          <h2>You are not the only one who has been putting this off.</h2>
+          <p>
+            Most families have. The kit gives you a calm way to start with the
+            details that matter first, without turning one afternoon into a
+            heavy planning meeting.
+          </p>
+        </div>
+      </section>
+
       <section class="quiet-strip" aria-label="Product highlights">
         <div>
           <span>01</span>
@@ -362,9 +380,9 @@
           <p class="section-label">Privacy</p>
           <h2>Your family's information stays with you.</h2>
           <div class="privacy-badges" aria-label="Privacy promises">
-            <span>No accounts</span>
-            <span>No storage</span>
-            <span>No tracking</span>
+            <span><strong>No accounts</strong></span>
+            <span><strong>No storage</strong></span>
+            <span><strong>No tracking</strong></span>
           </div>
         </div>
         <div class="privacy-grid">
@@ -398,15 +416,34 @@
           <h2>Get the 1-page ER checklist.</h2>
           <p>
             The exact information most families are asked for first if a parent
-            is hospitalized tomorrow. Early access opens with the launch.
+            is hospitalized tomorrow. Start with one page. It takes 10 minutes.
           </p>
         </div>
-        <a
-          class="secondary-button light"
-          href="mailto:hello@lifehandoffkit.com?subject=Parent%20Emergency%20Snapshot"
+        <form
+          class="lead-form"
+          action="https://formsubmit.co/hello@lifehandoffkit.com"
+          method="POST"
         >
-          Get the free checklist
-        </a>
+          <input type="hidden" name="_subject" value="Parent Emergency Snapshot request" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input
+            type="hidden"
+            name="_next"
+            value="https://lifehandoffkit.com/assets/Parent-Emergency-Snapshot-Free-Checklist.pdf"
+          />
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" />
+          <label for="lead-email">Email address</label>
+          <div class="lead-form-row">
+            <input
+              id="lead-email"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              required
+            />
+            <button type="submit">Send me the free checklist</button>
+          </div>
+        </form>
       </section>
 
       <section class="offer-section" id="buy">
@@ -434,9 +471,9 @@
             class="primary-button full"
             href="mailto:hello@lifehandoffkit.com?subject=Parent%20Readiness%20Protocol%20launch"
           >
-            Request launch access
+            Secure the protocol
           </a>
-          <p class="checkout-note">Digital delivery. No account portal. Your family information stays with you.</p>
+          <p class="checkout-note">Instant download after purchase. Delivered instantly. Yours to keep. No account required.</p>
         </div>
       </section>
 
