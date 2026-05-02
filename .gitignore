@@ -1,0 +1,2 @@
+# Paid/review product files should not be deployed with the public static site.
+product/
